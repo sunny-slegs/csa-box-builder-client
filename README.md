@@ -13,7 +13,7 @@ See the app here:
 
 Use username 'demo' and password 'password88' to login.
 
-https://csa-box-builder.herokuapp.com/
+See the live app [here]("https://csa-box-builder.now.sh/")
 
 ![Login Page](./screen-shots/login.png)
 ![Dashboard](./screen-shots/dashboard.png)
