@@ -24,5 +24,12 @@
   },
   "devDependencies": {
     "jest-localstorage-mock": "^2.2.0"
+  },
+  "now": {
+    "name": "csa-box-builder",
+    "alias": "csa-box-builder",
+    "env": [
+      "REACT_APP_API_BASE_URL"
+    ]
   }
 }
