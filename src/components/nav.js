@@ -1,19 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
-
+import {goHome} from '../actions/boxes';
 import {showAbout} from '../actions/boxes';
-import {clearAuth} from '../actions/auth'
+import {clearAuth} from '../actions/auth';
+import './nav.css';
 
 export class Nav extends React.Component {
-
-  // componentDidMount() {
-  //   this.props.dispatch(showAboutUs(false));
-  // }
   
-  onClick = () => {
-    this.props.dispatch(showAbout(true));
-  }
 
   logout() {
     this.props.dispatch(clearAuth());
@@ -22,33 +16,36 @@ export class Nav extends React.Component {
     }
   }
 
+  goHome() {
+    this.props.dispatch(goHome())
+  }
+
+  showAbout() {
+    this.props.dispatch(showAbout(true))
+  }
+
 
   render() {
-   const aboutButton = [];
-   if (this.props.showAbout) {
-    return <Redirect to='/about' />
-   } else {
-    aboutButton.push(<button key='about-button' type='button' className='about-button' onClick={() => this.onClick()}>About Us</button>);
-   }
-   
-   const logOutButton = [];
+   let logOutButton = "";
+   let homeButton = "";
+   let aboutButton = "";
    if (this.props.loggedIn) {
-     logOutButton.push(<button type='button' key='logout-button' className='logout-button' onClick={() => this.logout()}>Log Out</button>);
+     logOutButton = <button type='button' key='logout-button' className='logout-button' onClick={() => this.logout()}>Log Out</button>
+     homeButton = <button type='button' key='home-button' className='home-button' onClick={() => this.goHome()}>Home</button>
+     aboutButton = <button key='about-button' type='button' className='about-button' onClick={() => this.showAbout()}>About Us</button>
    }
 
     return(
-      
-      <header role='banner'>
+      <div>
         <nav>
           <ul>
+            <li>{homeButton}</li>
             <li>{aboutButton}</li>
             <li>{logOutButton}</li>
-            {/* <li>{dashboard}</li> */}
           </ul>
-        </nav>  
-        <h1>Twisted Root Farm</h1>
-          
-      </header>
+        </nav> 
+      </div>
+        
     )
   }
   }

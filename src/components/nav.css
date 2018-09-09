@@ -1,0 +1,26 @@
+nav {
+	height: 10%;
+  	font-size: 35px;
+	font-family: 'Marmelad', sans-serif;
+	color: #9de0bb;
+	margin: 0;
+    padding: 0;
+    clear: left;
+    position: absolute;
+}
+
+ul, li {
+    display: inline;
+    float: left;
+}
+
+button {
+    width: 100px;
+    padding: 5px 5px 15px;
+    color: #9de0bb;
+    border: 2px solid #9de0bb;
+    background-color: rgb(107, 11, 51, 0.75);
+    border-radius: 7px;
+}
+
+

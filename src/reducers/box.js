@@ -1,34 +1,46 @@
 import {
+  FETCH_BOX_REQUEST,
   FETCH_BOX_SUCCESS,
   FETCH_BOX_ERROR, 
+  CREATE_BOX_REQUEST,
   CREATE_BOX_SUCCESS,
   CREATE_BOX_ERROR,
   ADD_VEGETABLE,
+  UPDATE_BOX_REQUEST,
   UPDATE_BOX_SUCCESS,
   UPDATE_BOX_ERROR,
   SET_SELECT_DISPLAY_BOOLEAN,
   DELETE_VEGETABLE,
   ERROR_MESSAGE,
   SUCCESS_MESSAGE,
-  SHOW_ABOUT
+  SHOW_ABOUT,
+  GO_HOME
 } from '../actions/boxes';
 
 const initialState = {
   unsavedBoxContents: [],
   savedBoxContents: null,
+  loading: false,
   pickUpDate: null,
   displaySelectForm: true,
   data: null,
   error: null,
   errorMessage: null,
   successMessage: null,
-  showAbout: false
+  showAbout: false,
+  goHome: false
 };
 
 export default function reducer(state = initialState, action) {
-  if (action.type === FETCH_BOX_SUCCESS) {
+  if (action.type === FETCH_BOX_REQUEST) {
+      return Object.assign({}, state, {
+          loading: true,
+          goHome: false
+      })
+  } else if (action.type === FETCH_BOX_SUCCESS) {
         if (action.data.boxContents.length === 0) {  
             return Object.assign({}, state, {
+                loading: false,
                 unsavedBoxContents: [],
                 savedBoxContents: null,
                 pickUpDate: action.data.pickUpDate,
@@ -36,6 +48,7 @@ export default function reducer(state = initialState, action) {
             });
         } else {
         return Object.assign({}, state, {
+            loading: false,
             unsavedBoxContents: null,
             savedBoxContents: action.data.boxContents,
             pickUpDate: action.data.pickUpDate,
@@ -49,8 +62,14 @@ export default function reducer(state = initialState, action) {
           pickUpDate: null,
           error: action.error
       });
-  } else if (action.type === CREATE_BOX_SUCCESS) {
+  } else if (action.type === CREATE_BOX_REQUEST) {
+    return Object.assign({}, state, {
+        loading: true,
+        goHome: false
+    })
+} else if (action.type === CREATE_BOX_SUCCESS) {
       return Object.assign({}, state, {
+        loading: false,
         unsavedBoxContents: [],
         savedBoxContents: null,
         pickUpDate: action.data.pickUpDate,
@@ -58,6 +77,7 @@ export default function reducer(state = initialState, action) {
       });
   } else if (action.type === CREATE_BOX_ERROR) {
       return Object.assign({}, state, {
+        loading: false,
         unsavedBoxContents: [],
         savedBoxContents: null,
         pickUpDate: null,
@@ -87,8 +107,14 @@ export default function reducer(state = initialState, action) {
               saveInstructions: ''
           })
       }
-  } else if (action.type === UPDATE_BOX_SUCCESS) {
+  } else if (action.type === UPDATE_BOX_REQUEST) {
+    return Object.assign({}, state, {
+        loading: true,
+        goHome: false
+    })
+} else if (action.type === UPDATE_BOX_SUCCESS) {
       return Object.assign({}, state, {
+        loading: false,
         unsavedBoxContents: null,
         savedBoxContents: action.data.boxContents,
         pickUpDate: action.data.pickUpDate,
@@ -96,6 +122,7 @@ export default function reducer(state = initialState, action) {
       });
   } else if (action.type === UPDATE_BOX_ERROR) {
       return Object.assign({}, state, {
+        loading: false,
         error: action.error
       })
   } else if (action.type === DELETE_VEGETABLE) {
@@ -119,6 +146,11 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === SHOW_ABOUT) {
       return Object.assign({}, state, {
           showAbout: action.boolean
+      })
+  } else if (action.type === GO_HOME) {
+      return Object.assign({}, state, {
+          goHome: true,
+          showAbout: false
       })
   }
   return state;

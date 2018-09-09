@@ -1,41 +1,31 @@
 	
-	body {
-  margin: 0;
-  padding: 0;
+body {
+  	margin: 0;
+  	padding: 0;
 	font-family: sans-serif;
-	position: relative;
-	display: inline-block;
-	width: 98%;
-	height: 96%;
+	min-width: 100%;
+	min-height: 100%;
 	margin: 0.8em auto;
 	color: #9de0bb;
 	font-family: 'Marmelad', sans-serif;
-	/* background-color: rgb(52, 133, 52) ;  */
-	background: url('./csa-box-img.jpg') no-repeat center center;
-	background-size: cover;
+	background: url('./csa-box-img.jpg') no-repeat center center fixed;
 	text-align: center;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
- 
-h1 {
-	width: 350px;
-	padding: 20px;
-	border: 5px solid #9de0bb;
-	display: inline-block;
-	right: 40px;
-	background-color: rgb(107, 11, 51, 0.75);
-	border-radius: 7px;
-	clear: right;
-	}
-
 .container {
+	display: inline-block;
 	padding: 20px;
 	width: 350px;
+	position: relative;
+	margin-top: 150px;
 	border: 5px solid #9de0bb;
-	display: inline-block;
 	background-color:  rgb(107, 11, 51, 0.8);
 	border-radius: 7px;
 }
@@ -71,16 +61,6 @@ input {
   display: none;
 }
 
-nav {
-	position: absolute;
-	height: 10%;
-  font-size: 35px;
-	font-family: 'Marmelad', sans-serif;
-	color: #9de0bb;
-	margin: 0;
-	padding: 0;
-}
-
 h2 {
 	font-size: 30px;
 	padding: 5px;
@@ -106,7 +86,7 @@ h2.dashboard {
 #password, #username, #firstName, #lastName, #passwordConfirm {
 	width: 180px;
 	height: 13px;
-  display: inline-block;
+  	display: inline-block;
 	font-size: 25px;
 	font-family: 'Marmelad', sans-serif;
 	padding: 0.8em 0.5em;
@@ -205,7 +185,3 @@ nav ul {
 	padding: 0;
 }
 
-nav ul li {
-	display: inline;
-	float: left;
-}

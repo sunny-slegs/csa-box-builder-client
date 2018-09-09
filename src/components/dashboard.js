@@ -13,6 +13,10 @@ export class Dashboard extends React.Component {
      return <Redirect to='/' />
     }
 
+    if (this.props.showAbout) {
+      return <Redirect to='/about' />
+    }
+
     return(  
       <div className='container dashboard'>
         <h2>Choose your box pickup date</h2>
@@ -25,6 +29,7 @@ export class Dashboard extends React.Component {
 const mapStateToProps = state => {
   const {currentUser} = state.auth;
   return {
+      showAbout: state.box.showAbout,
       loggedIn: state.auth.authToken !== null,
       username: state.auth.currentUser.username,
       name: `${currentUser.firstName} ${currentUser.lastName}`,

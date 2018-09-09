@@ -1,6 +1,7 @@
 import React from 'react';
 import {Field, focus, reduxForm} from 'redux-form';
 import Input from './input';
+import {connect} from 'react-redux';
 import {login} from '../actions/auth';
 import {required, nonEmpty} from '../validators';
 
@@ -17,6 +18,10 @@ export class LoginForm extends React.Component {
                     {this.props.error}
                 </div>
             );
+        }
+
+        if (this.props.loading) {
+            return <h1>Loading...</h1>
         }
 
         return (
@@ -53,7 +58,12 @@ export class LoginForm extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+    loading: state.auth.loading 
+  });
+  
+
 export default reduxForm({
   form: 'login',
   onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
-})(LoginForm);
+})(connect(mapStateToProps)(LoginForm));

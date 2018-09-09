@@ -1,6 +1,7 @@
 import React from 'react';
-import {connect} from 'react-redux'
-
+import {connect} from 'react-redux';
+import Spinner from 'react-spinkit';
+import {Redirect} from 'react-router-dom';
 import requiresLogin from './requires-login';
 import {
   fetchBox, 
@@ -85,7 +86,18 @@ export class BoxPage extends React.Component {
   render() {
     const vegetableOptions = [];
     // if no vegetables have been selected provide all vegetable options to user
-    console.log('the box-page is rendering')
+    // console.log('the box-page is rendering')
+    if (this.props.loading) {
+      return <Spinner name="three-bounce" />
+    }
+
+    if (this.props.goHome) {
+      return <Redirect to='/dashboard' />
+    }
+
+    if (this.props.showAbout) {
+      return <Redirect to='/about' />
+    }
 
     if (this.props.unsavedBoxContents) {
       const remainingChoices = this.props.vegetables.filter((vegetable) => {
@@ -139,8 +151,11 @@ const mapStateToProps = state => {
       unsavedBoxContents: state.box.unsavedBoxContents,
       vegetables: state.vegetable.data,
       selectDisplay: state.box.displaySelectForm,
+      loading: state.box.loading,
       errorMessage: state.box.errorMessage,
-      successMessage: state.box.successMessage
+      successMessage: state.box.successMessage,
+      goHome: state.box.goHome,
+      showAbout: state.box.showAbout
   }
 };
 
