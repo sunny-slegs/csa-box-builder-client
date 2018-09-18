@@ -14,7 +14,7 @@ export function RegistrationPage(props) {
         <div className="home container">
             <h2>Sign Up!</h2>
             <RegistrationForm />
-            <Link to="/">
+            <Link to="/login">
               <button type='button'>
                   Login
                 </button>

@@ -6,6 +6,7 @@ import LandingPage from './landing-page';
 import Nav from './nav';
 import RegistrationPage from './registration-page';
 import Dashboard from './dashboard';
+import LoginPage from './login-page';
 import {refreshAuthToken} from '../actions/auth';
 import BoxPage from './box-page';
 import About from './about-us';
@@ -45,6 +46,7 @@ stopPeriodicRefresh() {
       <div>
         <Nav />
         <Route exact path='/' component={LandingPage} />
+        <Route exact path='/login' component={LoginPage} />
         <Route exact path='/register' component={RegistrationPage} />
         <Route exact path='/dashboard' component={Dashboard} />
         <Route path='/box/:date' component={BoxPage} />

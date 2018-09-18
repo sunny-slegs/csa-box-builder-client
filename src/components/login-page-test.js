@@ -1,11 +1,11 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
 
-import {LandingPage} from './landing-page';
+import {LoginPage} from './login-page';
 
-describe(<LandingPage/>, () => {
+describe(<LoginPage/>, () => {
   it('Renders without crashing', () => {
-    shallow(<LandingPage />);
+    shallow(<LoginPage />);
   });
 
 });
