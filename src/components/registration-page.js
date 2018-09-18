@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect, Link} from 'react-router-dom';
 import RegistrationForm from './registration-form';
+import Spinner from 'react-spinkit';
 
 export function RegistrationPage(props) {
     // If we are logged in (which happens automatically when registration
@@ -10,8 +11,23 @@ export function RegistrationPage(props) {
         console.log(props.loggedIn)
         return <Redirect to="/dashboard" />;
     }
+
+    if (props.loading) {
+        return <Spinner name="three-bounce" />
+      }
+
     return (
         <React.Fragment>
+         
+            <div className="home container">
+                <h2>Sign Up!</h2>
+                <RegistrationForm />
+                <Link to="/">
+                <button type='button'>
+                    Login
+                    </button>
+                </Link>
+            </div>
             <div className='about-us container'>
                 <p className='about-us'>
                 Twisted Root Farm is a small CSA farm located in the beautiful hill country of 
@@ -38,21 +54,14 @@ export function RegistrationPage(props) {
                 you!  Happy choosing!
                 </p>
             </div>
-            <div className="home container">
-                <h2>Sign Up!</h2>
-                <RegistrationForm />
-                <Link to="/">
-                <button type='button'>
-                    Login
-                    </button>
-                </Link>
-            </div>
+            
         </React.Fragment>
     );
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
+    loggedIn: state.auth.currentUser !== null,
+    loading: state.auth.loading
 });
 
 export default connect(mapStateToProps)(RegistrationPage);
