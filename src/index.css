@@ -23,12 +23,17 @@ body {
 	display: inline-block;
 	padding: 20px;
 	width: 350px;
+	height: 425px;
 	position: relative;
 	margin-top: 150px;
+	margin-left: 25px;
 	border: 5px solid #9de0bb;
 	background-color:  rgb(107, 11, 51, 0.8);
 	border-radius: 7px;
+	overflow: auto;
 }
+
+
 
 @media only screen and (min-width: 600px) {
 	h1 {
@@ -62,8 +67,8 @@ input {
 }
 
 h2 {
-	font-size: 30px;
-	padding: 5px;
+  font-size: 30px;
+  padding: 5px;
   font-family: 'Marmelad', sans-serif;
   margin-top: 0;
   margin-bottom: 20px;
@@ -185,3 +190,7 @@ nav ul {
 	padding: 0;
 }
 
+#about-us {
+	overflow: scroll;
+	background-color: red;
+}

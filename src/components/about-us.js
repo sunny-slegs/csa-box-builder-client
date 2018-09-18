@@ -15,7 +15,7 @@ export class About extends React.Component {
       return <Redirect to='/dashboard' />
     }
     return (
-      <div className='about-us container'>
+      <div className='about-us container' id='about-us'>
         <p className='about-us'>
           Twisted Root Farm is a small CSA farm located in the beautiful hill country of 
           central Texas.  We strive to provide our customers with high quality, nutritious
