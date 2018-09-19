@@ -20,6 +20,8 @@ export function LandingPage(props) {
       <div className='about-us container'>
         <p>
           Demo username: DEMO
+        </p>
+        <p>
           Password: password123
         </p>
         <p className='about-us'>
