@@ -88,7 +88,7 @@ export class BoxPage extends React.Component {
     // if no vegetables have been selected provide all vegetable options to user
     // console.log('the box-page is rendering')
     if (this.props.loading) {
-      return <Spinner name="three-bounce" />
+      return <Spinner name="three-bounce" color="aqua"/>
     }
 
     if (this.props.goHome) {

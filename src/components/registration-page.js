@@ -13,7 +13,7 @@ export function RegistrationPage(props) {
     }
 
     if (props.loading) {
-        return <Spinner name="three-bounce" />
+        return <Spinner name="three-bounce" color="aqua" />
       }
 
     return (

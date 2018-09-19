@@ -12,7 +12,7 @@ export function LandingPage(props) {
   }
 
   if (props.loading) {
-    return <Spinner name="three-bounce" />
+    return <Spinner name="three-bounce" color="aqua" />
   } 
 
   return(
