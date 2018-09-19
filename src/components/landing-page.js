@@ -18,6 +18,10 @@ export function LandingPage(props) {
   return(
     <React.Fragment>
       <div className='about-us container'>
+        <p>
+          Demo username: DEMO
+          Password: password123
+        </p>
         <p className='about-us'>
           Twisted Root Farm is a small CSA farm located in the beautiful hill country of 
           central Texas.  We strive to provide our customers with high quality, nutritious
