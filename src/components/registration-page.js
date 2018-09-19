@@ -18,17 +18,7 @@ export function RegistrationPage(props) {
 
     return (
         <React.Fragment>
-         
-            <div className="home container">
-                <h2>Sign Up!</h2>
-                <RegistrationForm />
-                <Link to="/">
-                <button type='button'>
-                    Login
-                    </button>
-                </Link>
-            </div>
-            <div className='about-us container'>
+         <div className='about-us container'>
                 <p className='about-us'>
                 Twisted Root Farm is a small CSA farm located in the beautiful hill country of 
                 central Texas.  We strive to provide our customers with high quality, nutritious
@@ -54,6 +44,16 @@ export function RegistrationPage(props) {
                 you!  Happy choosing!
                 </p>
             </div>
+            <div className="home container">
+                <h2>Sign Up!</h2>
+                <RegistrationForm />
+                <Link to="/">
+                <button type='button'>
+                    Login
+                    </button>
+                </Link>
+            </div>
+            
             
         </React.Fragment>
     );

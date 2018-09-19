@@ -17,15 +17,6 @@ export function LandingPage(props) {
 
   return(
     <React.Fragment>
-      <div className='home container'>
-        <h2>Build Your CSA Box</h2>
-        <LoginForm />
-        <Link to='/register'>
-          <button type='button'>
-            Sign Up!
-          </button>
-        </Link>
-      </div>
       <div className='about-us container'>
         <p className='about-us'>
           Twisted Root Farm is a small CSA farm located in the beautiful hill country of 
@@ -52,6 +43,16 @@ export function LandingPage(props) {
           you!  Happy choosing!
         </p>
       </div>
+      <div className='home container'>
+        <h2>Build Your CSA Box</h2>
+        <LoginForm />
+        <Link to='/register'>
+          <button type='button'>
+            Sign Up!
+          </button>
+        </Link>
+      </div>
+      
     </React.Fragment>
   );
 }
