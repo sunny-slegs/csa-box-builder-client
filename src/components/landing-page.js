@@ -22,7 +22,7 @@ export function LandingPage(props) {
           Demo username: DEMO
         </p>
         <p>
-          Password: password123
+          Demo password: password123
         </p>
         <p className='about-us'>
           Twisted Root Farm is a small CSA farm located in the beautiful hill country of 
